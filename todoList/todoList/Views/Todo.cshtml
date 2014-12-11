@@ -1,0 +1,36 @@
+﻿@{
+    PageData["title"] = "AngularJS SPA | Todo";
+}
+
+<div ng-controller="ToDoCtrl">
+    {{ title }}    
+
+    <h1>To Do {{ ToDoList.length }} {{ incompleteCount() }}  <span class="label label-default" ng-class="warningLevel()"
+                                                                   ng-hide="incompleteCount() == 0">
+                                                                 {{incompleteCount()}}
+                                                             </span></h1>    
+
+    <div class="input-group">
+        <input class="form-control" ng-model="actionText" />
+        <span class="input-group-btn">
+            <button class="btn btn-default"
+                    ng-click="addNewItem(actionText)">Add</button>
+        </span>
+    </div>
+
+    <ul>
+        <li data-ng-repeat="item in ToDoList | checkedItems:showComplete | orderBy:'action'">
+            {{item.action}} 
+            <input ng-model="item.done" type="checkbox" type="text"/> 
+            {{item.done}} 
+        </li>
+    </ul>
+
+    <div class="checkbox-inline">
+        <label><input type="checkbox" ng_model="showComplete"> Show Complete</label>
+    </div>
+</div>
+
+
+
+
