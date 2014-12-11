@@ -4,4 +4,4 @@ User-agent: *
 
 Disallow: /views/
 
-Hellow
+Dino World
